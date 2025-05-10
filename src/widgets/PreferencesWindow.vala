@@ -69,6 +69,7 @@ public class Terminal.PreferencesWindow : Adw.PreferencesDialog {
   [GtkChild] unowned Gtk.ToggleButton         dark_theme_toggle;
   [GtkChild] unowned Gtk.ToggleButton         light_theme_toggle;
   [GtkChild] unowned ShortcutEditor           shortcut_editor;
+  [GtkChild] unowned Adw.SwitchRow            hide_cursor_while_typing_row;
 
   private Window window;
 
@@ -236,6 +237,13 @@ public class Terminal.PreferencesWindow : Adw.PreferencesDialog {
     settings.schema.bind(
       "terminal-bell",
       this.terminal_bell_switch_row,
+      "active",
+      SettingsBindFlags.DEFAULT
+    );
+    
+    settings.schema.bind(
+      "terminal-hide-cursor-while-typing",
+      this.hide_cursor_while_typing_row,
       "active",
       SettingsBindFlags.DEFAULT
     );

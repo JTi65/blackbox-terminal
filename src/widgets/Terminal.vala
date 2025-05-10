@@ -282,6 +282,13 @@ public class Terminal.Terminal : Vte.Terminal {
       SettingsBindFlags.DEFAULT
     );
 
+    this.settings.schema.bind(
+      "terminal-hide-cursor-while-typing",
+      this,
+      "pointer-autohide",
+      SettingsBindFlags.DEFAULT
+    );
+
     this.settings.schema.bind (
       "terminal-bell",
       this,
@@ -790,3 +797,4 @@ public class Terminal.Terminal : Vte.Terminal {
     this.withdraw_command_completed_notification ();
   }
 }
+
